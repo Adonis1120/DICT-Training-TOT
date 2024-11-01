@@ -2,9 +2,6 @@
     include_once "config/database.php";
     include_once "classes/Developer.php";
     include_once "classes/Calculator.php";
-
-    // Header
-    include_once "header.php";
     
     // Database Data
     $database = new Database();

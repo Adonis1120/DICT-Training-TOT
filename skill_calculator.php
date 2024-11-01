@@ -13,7 +13,7 @@
             <form method="POST" action="skill_calculator.php">
                 <div class="row justify-content-center align-items-center g-2">
                     <div class="col-md-4 mb-3">
-                        <label for="" class="form_label">Developer ID</label>
+                        <label for="" class="form_label">Name</label>
                         <select class="form-select form-select-md" onchange="this.form.submit()" name="developer_id" id="developer_id">
                             <?php
                                 while($row = $view_developer->fetchAll()) {
