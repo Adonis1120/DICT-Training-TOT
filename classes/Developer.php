@@ -100,7 +100,39 @@
         }
         
 
-        /* public function searchResults($query)
+        public function searchResults($developer_id) {
+            $query = "SELECT * FROM developer WHERE developer_id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $developer_id);
+            $stmt->execute();
+        
+            return $stmt; // Return the statement object. Fetching later will be used later instead.
+            // In this code, you can decide later to use fetch() or fetchAll().
+        }
+        
+        /* Search for PDO including fetchAll now in the code
+        public function searchResults($developer_id)
+        {
+            $query = "SELECT * FROM developer WHERE developer_id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $developer_id);
+
+            // Execute the query
+            if ($stmt->execute()) {
+                // Fetch results
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                // Handle query failure
+                echo "<script>alert('Error executing the search query');</script>";
+                $results = [];
+            }
+
+            return $results;
+        }
+        */
+        
+        /* Search for mysqli
+         public function searchResults($query)
         {
             echo "<script>alert('$query');</script>";
             //$query = "%{$query}%"; // used when using like
