@@ -5,11 +5,11 @@
 
 <div class="container mt-4">
     <div class="row justify-content-center text-center">
-        <h1>Salary Database</h1>
-        <h2>Salary Data Entry</h2>
+        <h1>Salary Calculator</h1>
+        <h3>Advance Calculator (Database Connected)</h3>
     </div>
     
-    <div class="row justify-content-center g-2">
+    <div class="row justify-content-center g-2 mt-3">
         <div class="col-md-8">
             <form method="POST" action="salary_calculator.php">
                 <div class="row justify-content-center align-items-center g-2">

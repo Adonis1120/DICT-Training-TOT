@@ -5,10 +5,12 @@
 <?php include_once "header.php" ?>
 
 <div class="container mt-4">
-    <div class="row justify-content-center align-items-center g-2">
-        <div class="col"><h1>Salary Calculator</h></div>
+    <div class="row justify-content-center text-center">
+        <h1>Skill Calculator</h1>
+        <h3>Basic Calculator</h3>
     </div>
-    <div class="row justify-content-center g-2">
+    
+    <div class="row justify-content-center g-2 mt-3">
         <div class="col-md-8">
             <form method="POST" action="skill_calculator.php">
                 <div class="row justify-content-center align-items-center g-2">

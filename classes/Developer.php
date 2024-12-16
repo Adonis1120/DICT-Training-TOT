@@ -98,7 +98,17 @@
 
             return $selected_result;
         }
-        
+
+        function searchDeveloper($query) {
+            $sql = "SELECT * FROM developer 
+                    WHERE first_name LIKE ? 
+                       OR last_name LIKE ? 
+                       OR title LIKE ? 
+                       OR developer_id LIKE ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$query, $query, $query, $query]);
+            return $stmt;
+        }                
 
         public function searchResults($developer_id) {
             $query = "SELECT * FROM developer WHERE developer_id = ?";
