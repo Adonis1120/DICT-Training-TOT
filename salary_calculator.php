@@ -17,7 +17,7 @@
                         <label for="" class="form_label">Name</label>
                         <select class="form-select form-select-md" onchange="this.form.submit()" name="developer_id" id="developer_id">
                             <?php
-                                while($row = $view_developer->fetchAll()) {
+                                while($row = $view_developer->fetchAll()) { // PDO are iteratable but you can still fetch it to convert into array.
                                     foreach ($row as $developer_data) {
                                         $selected = (isset($_POST['developer_id']) && $_POST['developer_id'] == $developer_data["developer_id"]) ? 'selected' : '';
                                         echo '<option value="' . $developer_data["developer_id"] . '" ' . $selected . '>'

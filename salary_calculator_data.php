@@ -18,7 +18,8 @@
         if (isset($_POST['developer_id']) && !empty($_POST['developer_id'])) {
             $developer->developer_id = $_POST['developer_id'];
         } else {
-            $developer->developer_id = $view_developer->fetch(PDO::FETCH_ASSOC)['developer_id'];
+            // Use fetch because you used fetchAll in the loop in salary_calculator and it is already converted to array
+            $developer->developer_id = $view_developer->fetch(PDO::FETCH_ASSOC)['developer_id'];    // fetch() used to point the cursor to the data. Use fetch for single pointer while fetchAll to get all data.
         }
 
         $selected_developer = $developer->selectDeveloper();

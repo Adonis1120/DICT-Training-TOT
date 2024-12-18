@@ -20,6 +20,7 @@
         */
     } else {
         $view_developer = $developer->readDeveloper();
+        var_dump($view_developer);
     }    
 
     if (isset($_POST['btnAdd'])) {
@@ -123,7 +124,7 @@
                     </thead>
                     <tbody class="table-group-divider">
                         <?php
-                            //while($row = $view_developer->fetchAll()) {
+                            //while($row = $view_developer->fetchAll()) {   // PDOStatement object is iterable, meaning you can directly loop over it in a foreach loop without needing to call fetch() or fetchAll() not like mysqli that you need to fetch it.
                                 foreach ($view_developer as $key => $developer_data) {
                                     echo
                                     "<tr>
