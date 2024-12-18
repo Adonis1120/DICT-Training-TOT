@@ -84,8 +84,34 @@
                 </script>";
             }
         }
+
+        function searchDeveloper($search_query) {
+            $query = "SELECT * FROM developer 
+                    WHERE first_name LIKE ?
+                       OR last_name LIKE ? 
+                       OR title LIKE ?";
+            $stmt = $this->conn->prepare($query);
+            $search_query = "%" . $search_query . "%";  // No need to use this if "%" . $_POST['search_query'] . "%" was set as value in the declaration or instantiation of the object
+            $stmt->bindParam(1, $search_query);
+            $stmt->bindParam(2, $search_query);
+            $stmt->bindParam(3, $search_query); // bindParam can also be used especially when you need sanitation later
+            $stmt->execute();
+            return $stmt;
+        }
+
+        /* Search Alternative Approach
+        function searchDeveloper($query) {
+            $sql = "SELECT * FROM developer 
+                    WHERE first_name LIKE ? 
+                       OR last_name LIKE ? 
+                       OR title LIKE ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([$query, $query, $query]);
+            return $stmt;
+        }
+        */
         
-        function selectDeveloper() {
+        function selectDeveloper() {    // For the select option or combo box for Developer
             $query = "SELECT * FROM developer WHERE developer_id = ?";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(1, $this->developer_id);
@@ -97,67 +123,6 @@
             }
 
             return $selected_result;
-        }
-
-        function searchDeveloper($query) {
-            $sql = "SELECT * FROM developer 
-                    WHERE first_name LIKE ? 
-                       OR last_name LIKE ? 
-                       OR title LIKE ? 
-                       OR developer_id LIKE ?";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([$query, $query, $query, $query]);
-            return $stmt;
-        }                
-
-        public function searchResults($developer_id) {
-            $query = "SELECT * FROM developer WHERE developer_id = ?";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(1, $developer_id);
-            $stmt->execute();
-        
-            return $stmt; // Return the statement object. Fetching later will be used later instead.
-            // In this code, you can decide later to use fetch() or fetchAll().
-        }
-        
-        /* Search for PDO including fetchAll now in the code
-        public function searchResults($developer_id)
-        {
-            $query = "SELECT * FROM developer WHERE developer_id = ?";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(1, $developer_id);
-
-            // Execute the query
-            if ($stmt->execute()) {
-                // Fetch results
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } else {
-                // Handle query failure
-                echo "<script>alert('Error executing the search query');</script>";
-                $results = [];
-            }
-
-            return $results;
-        }
-        */
-        
-        /* Search for mysqli
-         public function searchResults($query)
-        {
-            echo "<script>alert('$query');</script>";
-            //$query = "%{$query}%"; // used when using like
-            $stmt = $this->conn->prepare("SELECT * FROM developer WHERE developer_id = ?");
-            $stmt->bind_param("s", $query);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $stmt->close();
-
-            $results = [];
-            while ($row = $result->fetch_assoc()) {
-                $results[] = $row;
-            }
-
-            return $results;
-        } */
+        }              
     } 
 ?>

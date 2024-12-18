@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container menu">
             <a class="navbar-brand" href="#">Web Dev TOT</a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -35,8 +35,10 @@
                         <a class="nav-link active" href="developer_crud.php">Database</a>
                     </li>
                 </ul>
+                <!--
                 <span class="ms-1"><button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalSignin">Sign In</button></span>
                 <span class="ms-1"></span><button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalSignup">Sign Up</button></span>
+                -->
             </div>
         </div>
     </nav>

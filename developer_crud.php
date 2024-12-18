@@ -12,8 +12,12 @@
     $developer = new Developer($db);
 
     if (isset($_POST['btnSearch']) && !empty($_POST['search_query'])) {
+        $search_query = $_POST['search_query']; // You can also use "%" . $_POST['search_query'] . "%" here to directly include the % so that no need to declare again or change it in the class function.
+        $view_developer = $developer->searchDeveloper($search_query);
+        /* Search Alternative Approach
         $search_query = "%" . $_POST['search_query'] . "%";
         $view_developer = $developer->searchDeveloper($search_query);
+        */
     } else {
         $view_developer = $developer->readDeveloper();
     }    
@@ -81,9 +85,13 @@
     </div>
 
     <div class="row justify-content-center align-items-center g-2 mt-3">
-        <form method="POST" class="d-flex justify-content-center">
-            <input type="text" class="form-control w-50" name="search_query" placeholder="Search by Name or Title">
-            <button type="submit" class="btn btn-primary ms-2" name="btnSearch">Search</button>
+        <form method="POST" class="row justify-content-end align-items-center">
+            <div class="col col-md-4">
+                <input type="text" class="form-control" name="search_query" placeholder="Search by Name or Title">
+            </div>
+            <div class="col-auto mt-md-auto">
+                <button type="submit" class="btn btn-primary" name="btnSearch">Search</button>
+            </div>
         </form>
     </div>
 
@@ -106,7 +114,7 @@
                 <table class="table table-striped table-hover align-middle">
                     <thead>
                         <tr class="table-primary">
-                            <th>ID</th>
+                            <th>No.</th>
                             <th>Full Name</th>
                             <th>Title</th>
                             <th>Rate</th>
@@ -115,11 +123,11 @@
                     </thead>
                     <tbody class="table-group-divider">
                         <?php
-                            while($row = $view_developer->fetchAll()) {
-                                foreach ($row as $developer_data) {
+                            //while($row = $view_developer->fetchAll()) {
+                                foreach ($view_developer as $key => $developer_data) {
                                     echo
                                     "<tr>
-                                        <td>" . $developer_data["developer_id"] . "</td>
+                                        <td>" . $key + 1 . "</td>
                                         <td>" . $developer_data["first_name"] . " " . $developer_data["last_name"] . "</td>
                                         <td>" . $developer_data["title"] . "</td>
                                         <td>" . $developer_data["hourly_rate"] . "</td>
@@ -139,7 +147,7 @@
                                         </td>
                                     </tr>";
                                 }
-                            }
+                            //}
                         ?>
                     </tbody>
                     <tfoot>
