@@ -16,15 +16,7 @@
                 <div class="row justify-content-center align-items-center g-2">
                     <div class="col-md-4 mb-3">
                         <label for="" class="form_label">Name</label>
-                        <select class="form-select form-select-md" onchange="this.form.submit()" name="developer_id" id="developer_id">
-                            <?php
-                                while($row = $view_developer->fetchAll()) {
-                                    foreach ($row as $developer_data) {
-                                        echo '<option value=' . $developer_data["developer_id"] . '>' . $developer_data["first_name"] . ' ' . $developer_data["last_name"] . '</option>';
-                                    }
-                                }
-                            ?>
-                        </select>
+                        <input type="text" class="form-control" name="name" id="">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="" class="form_label">Skill</label>
@@ -52,7 +44,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <p class="card-text fw-bold">Name: <?php echo $developer_id?></p>
+                    <p class="card-text fw-bold">Name: <?php echo $name?></p>
                     <p class="card-text fw-bold">Skill Level: <?php echo $skill_level?></p>
                     <p class="card-text fw-bold">Rate: <?php echo $rate?></p>
                     <p class="card-text fw-bold">Hours Worked: <?php echo $hours_worked?></p>

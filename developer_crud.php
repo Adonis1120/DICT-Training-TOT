@@ -67,14 +67,14 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label class="col-4 col-form-label">Title</label>
-                    <input type="text" class="form-control" name="title">
+                    <input type="text" class="form-control" name="title" required>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label class="col-4 col-form-label">Hourly Rate</label>
-                    <input type="text" class="form-control" name="hourly_rate">
+                    <input type="number" class="form-control" name="hourly_rate" placeholder="$" required>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary" name="btnAdd">Submit</button>
+                    <button type="submit" class="btn btn-primary" name="btnAdd">Add</button>
                 </div>
             </div>
         </form>
@@ -87,7 +87,7 @@
     <div class="row justify-content-center align-items-center g-2 mt-3">
         <form method="POST" class="row justify-content-end align-items-center">
             <div class="col col-md-4">
-                <input type="text" class="form-control" name="search_query" placeholder="Search by Name or Title">
+                <input type="text" class="form-control" name="search_query" placeholder="Search name or title">
             </div>
             <div class="col-auto mt-md-auto">
                 <button type="submit" class="btn btn-primary" name="btnSearch">Search</button>
@@ -130,7 +130,7 @@
                                         <td>" . $key + 1 . "</td>
                                         <td>" . $developer_data["first_name"] . " " . $developer_data["last_name"] . "</td>
                                         <td>" . $developer_data["title"] . "</td>
-                                        <td>" . $developer_data["hourly_rate"] . "</td>
+                                        <td>$" . $developer_data["hourly_rate"] . "</td>
                                         <td>
                                             <a href='#' type='button' class='btn btn-sm btn-outline-primary' data-bs-toggle='modal' data-bs-target='#updateDeveloper'
                                             data-id='" . $developer_data["developer_id"] . "'
@@ -220,7 +220,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <small class="font-weight-bold mt-1">Hourly Rate</small>
-                                <input type="text" class="form-control form-control-sm" id="update_hourly_rate" name="update_hourly_rate">
+                                <input type="number" class="form-control form-control-sm" id="update_hourly_rate" name="update_hourly_rate">
                             </div>
                         </div>
                     </div>

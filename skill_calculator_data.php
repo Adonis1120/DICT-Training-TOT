@@ -11,7 +11,7 @@
     $view_developer = $developer->readDeveloper();
 
     // Calculator Data
-    $developer_id = "";
+    $name = "";
     $hours_worked = 0;
     $skill_level = "";
     $rate = 0.0;
@@ -20,7 +20,7 @@
     $total_pay = 0.0;
 
     if(isset($_POST['compute'])) {
-        $developer_id = $_POST['developer_id'];
+        $name = $_POST['name'];
         if($_POST['hours_worked'] <> ""){
             $hours_worked = $_POST['hours_worked'];
         }
