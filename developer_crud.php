@@ -24,7 +24,6 @@
         When debugging, use fetch command/s to retrieve and inspect all rows at once before "var_dump($view_developer);".
         Without fetching, the var_dump just display the sql object not the content.
         */
-
     }    
 
     if (isset($_POST['btnAdd'])) {

@@ -7,13 +7,13 @@ class Calculator {
 
     function getRate(){
         if($this->skill_level==1){
-            $this->rate = 300.00;
+            $this->rate = 15.00;
         }
         elseif($this->skill_level==2){
-            $this->rate = 400.00;
+            $this->rate = 20.00;
         }
         elseif($this->skill_level==3){
-            $this->rate = 500.00;
+            $this->rate = 25.00;
         }
         else{
             $this->rate = 0.00;

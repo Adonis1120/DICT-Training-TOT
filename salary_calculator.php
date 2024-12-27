@@ -6,7 +6,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center text-center">
         <h1>Salary Calculator</h1>
-        <h3>Advance Calculator</h3>
+        <h3>Database Connected</h3>
     </div>
 
     <div class="row justify-content-center g-2 mt-3">

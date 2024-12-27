@@ -25,8 +25,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php" aria-current="page">Home<span class="visually-hidden">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="skill_calculator.php">Calculator</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Calculator
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="order.php">Order</a></li>
+                            <li><a class="dropdown-item" href="skill_calculator.php">Skill</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="salary_calculator.php">Salary</a>
