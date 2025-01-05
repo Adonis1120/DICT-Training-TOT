@@ -109,6 +109,10 @@
             $stmt->execute([$query, $query, $query]);
             return $stmt;
         }
+
+        Use this in the data section
+        $search_query = "%" . $_POST['search_query'] . "%";
+        $view_developer = $developer->searchDeveloper($search_query);
         */
         
         function selectDeveloper() {    // For the select option or combo box for Developer
